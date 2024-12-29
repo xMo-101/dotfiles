@@ -40,8 +40,9 @@ button {
   background-repeat: no-repeat;
   background-position: center;
   background-size: 25%;
-  border: none;
+  border: solid 5px #181825;
   transition: 0.3s ease-out;
+  margin: 2px;
 }
 
 button#lock {
@@ -88,7 +89,6 @@ button#reboot:hover {
   border-bottom: 5px solid white;
 }
 
-button:focus,
 button:active,
 button:hover {
   /* 20% Overlay 2, 80% mantle */
