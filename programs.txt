@@ -6,6 +6,9 @@ nwg-dock-hyprland
 waybar
 wlogout
 rofi
+hyprlock
+hypridle
+hyprpaper
 sddm
 thunar
 libreoffice
