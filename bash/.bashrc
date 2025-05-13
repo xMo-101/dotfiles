@@ -8,8 +8,8 @@ alias grep='grep --color=auto'
 PS1='[\u@\h \W]\$ '
 
 # OH MY POSH:
-export PATH=$PATH:/home/awan/.local/share
-eval "$(oh-my-posh init bash --config /home/awan/omp_config.omp.json)"
+export PATH=$PATH:/home/awan/.local/bin
+eval "$(/home/moeez/.local/bin/oh-my-posh init bash --config /home/moeez/omp_config.omp.json)"
 
 # RUN NEOFETCH ON TERMINAL LAUNCH:
 neofetch

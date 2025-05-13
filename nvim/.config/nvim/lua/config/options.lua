@@ -23,6 +23,8 @@ vim.opt.undofile = true
 vim.opt.incsearch = true
 
 vim.opt.termguicolors = true
+vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE" })
+vim.api.nvim_set_hl(0, "FloatBorder", { bg = "NONE" })
 
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
@@ -30,6 +32,7 @@ vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
 
-vim.opt.cursorline = true -- Highlight the current line
-vim.api.nvim_set_hl(0, "CursorLine", { bg = "#2E3440", fg = "NONE" }) -- Set the highlight-color of the current line
+vim.opt.cursorline = false -- Highlight the current line
+vim.cmd("colorscheme dracula")
+-- vim.api.nvim_set_hl(0, "CursorLine", { bg = "#2E3440", fg = "NONE" }) -- Set the highlight-color of the current line
 -- vim.opt.colorcolumn = "80"

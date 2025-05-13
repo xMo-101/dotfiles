@@ -13,7 +13,6 @@ return {
 					variables = "none",
 				},
 			})
-			require("onedark").load()
 		end,
 	},
 }

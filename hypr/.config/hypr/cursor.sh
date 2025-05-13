@@ -1,2 +1,2 @@
 #!/bin/bash
-hyprctl setcursor oreo_black_cursors 24
+hyprctl setcursor oreo_white 24
