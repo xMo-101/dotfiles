@@ -13,3 +13,6 @@ eval "$(/home/moeez/.local/bin/oh-my-posh init bash --config /home/moeez/omp_con
 
 # RUN NEOFETCH ON TERMINAL LAUNCH:
 neofetch
+
+# BASH-COMPLETION:
+[[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && . /usr/share/bash-completion/bash_completion
