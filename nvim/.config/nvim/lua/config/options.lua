@@ -14,8 +14,10 @@ vim.opt.swapfile = false
 vim.opt.backup = false
 if vim.fn.has("win32") == 1 then
 	vim.opt.undodir = os.getenv("USERPROFILE") .. "\\.vim\\undodir"
+	vim.o.shell = "powershell" -- use powershell as shell if on windows
 else
 	vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+	vim.o.shell = "bash" -- use bash as shell if not on windows
 end
 
 vim.opt.undofile = true
