@@ -31,3 +31,9 @@ then
     pkill nwg-dock-hyprla
 fi
 nwg-dock-hyprland -d -f -lp 'end' -i 36 &
+# blueman:
+if pgrep -x "blueman-applet" > /dev/null
+then
+    pkill blueman-applet
+fi
+blueman-applet &
