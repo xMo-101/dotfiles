@@ -8,4 +8,4 @@ My dotfiles for EndeavourOS
   - install dependencies
   - move folders
   - widgets using AGS by Aylur
-  - test
+  - test 2

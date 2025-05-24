@@ -1,11 +1,12 @@
 # custom files
-custom/
+# custom/
 
 # temp files directories
 cache/
 log/
 *.swp
 .DS_Store
+.git
 
 # editor configs
 .vscode
