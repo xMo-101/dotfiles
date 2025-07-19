@@ -1,0 +1,41 @@
+// Base colors generated from Catppuccin Mocha theme using ChatGPT
+$bg-color: #1e1e2e; // base
+$bg-alt: #181825; // mantle
+$bg-darker: #11111b; // crust
+
+$fg-color: #cdd6f4; // text
+$fg-muted: #a6adc8; // subtext0
+$fg-subtle: #bac2de; // subtext1
+
+// Accent colors
+$accent-color: #89b4fa; // blue
+$accent-alt: #b4befe; // lavender
+
+$error-color: #f38ba8; // red
+$warning-color: #fab387; // peach
+$success-color: #a6e3a1; // green
+$info-color: #89dceb; // sky
+
+// UI surface
+$surface0: #313244;
+$surface1: #45475a;
+$surface2: #585b70;
+
+$overlay0: #6c7086;
+$overlay1: #7f849c;
+$overlay2: #9399b2;
+
+// Extended palette
+$pink: #f5c2e7;
+$mauve: #cba6f7;
+$maroon: #eba0ac;
+$teal: #94e2d5;
+$sapphire: #74c7ec;
+$yellow: #f9e2af;
+$rosewater: #f5e0dc;
+$flamingo: #f2cdcd;
+
+// Transparent/alpha variants (optional)
+$bg-color-alpha: #1e1e2ecc;
+$fg-color-alpha: #cdd6f4cc;
+$accent-alpha: #89b4facc;

@@ -1,0 +1,40 @@
+// Base colors
+$bg-color: #2e3440; // nord0
+$bg-alt: #3b4252; // nord1
+$bg-darker: #434c5e; // nord2
+
+$fg-color: #d8dee9; // nord4
+$fg-muted: #e5e9f0; // nord5
+$fg-subtle: #eceff4; // nord6
+
+// Accent colors
+$accent-color: #5e81ac; // nord10
+$accent-alt: #81a1c1; // nord9
+
+$error-color: #bf616a; // nord11
+$warning-color: #ebcb8b; // nord13
+$success-color: #a3be8c; // nord14
+$info-color: #88c0d0; // nord8
+
+// UI surface
+$surface0: #4c566a; // nord3
+$surface1: #3b4252; // repetition of bg-alt
+$surface2: #2e3440; // repetition of bg-color
+
+$overlay0: #81a1c1; // subtle overlay/light accent
+$overlay1: #5e81ac;
+$overlay2: #4c566a;
+
+// Extended palette (optional mappings)
+$red: #bf616a;
+$orange: #d08770; // nord12
+$yellow: #ebcb8b;
+$green: #a3be8c;
+$cyan: #88c0d0;
+$blue: #5e81ac;
+$magenta: #b48ead; // nord15
+
+// Alpha versions (optional)
+$bg-color-alpha: #2e3440cc;
+$fg-color-alpha: #d8dee9cc;
+$accent-alpha: #5e81accc;

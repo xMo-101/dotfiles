@@ -1,0 +1,41 @@
+// Base colors
+$bg-color: #eff1f5; // base
+$bg-alt: #e6e9ef; // mantle
+$bg-darker: #dce0e8; // crust
+
+$fg-color: #4c4f69; // text
+$fg-muted: #6c6f85; // subtext0
+$fg-subtle: #5c5f77; // subtext1
+
+// Accent colors
+$accent-color: #1e66f5; // blue
+$accent-alt: #7287fd; // lavender
+
+$error-color: #d20f39; // red
+$warning-color: #fe640b; // peach
+$success-color: #40a02b; // green
+$info-color: #04a5e5; // sky
+
+// UI surface
+$surface0: #ccd0da;
+$surface1: #bcc0cc;
+$surface2: #acb0be;
+
+$overlay0: #9ca0b0;
+$overlay1: #8c8fa1;
+$overlay2: #7c7f93;
+
+// Extended palette
+$pink: #ea76cb;
+$mauve: #8839ef;
+$maroon: #e64553;
+$teal: #179299;
+$sapphire: #209fb5;
+$yellow: #df8e1d;
+$rosewater: #dc8a78;
+$flamingo: #dd7878;
+
+// Transparent/alpha variants (optional)
+$bg-color-alpha: #eff1f5cc;
+$fg-color-alpha: #4c4f69cc;
+$accent-alpha: #1e66f5cc;

@@ -1,0 +1,43 @@
+// glassmorphism.scss
+
+// === Base Colors ===
+$bg-color: #ffffff;
+$bg-alt: #f9f9f9;
+$bg-darker: #f0f0f0;
+
+$fg-color: #1a1a1a;
+$fg-muted: #4d4d4d;
+$fg-subtle: #7f7f7f;
+
+// === Accent Colors ===
+$accent-color: #2d8cff;
+$accent-alt: #b4c8ff;
+
+$error-color: #ff5f56;
+$warning-color: #ffbd2e;
+$success-color: #27c93f;
+$info-color: #62b3ff;
+
+// === Surface Colors ===
+$surface0: #ffffffcc;
+$surface1: #ffffffb3;
+$surface2: #ffffff80;
+
+$overlay0: #ffffff4d;
+$overlay1: #ffffff33;
+$overlay2: #ffffff1a;
+
+// === Extended Palette ===
+$pink: #ffb6c1;
+$mauve: #d8b4fe;
+$maroon: #800000;
+$teal: #00bfa6;
+$sapphire: #0f52ba;
+$yellow: #f9e79f;
+$rosewater: #f5e0dc;
+$flamingo: #f2cdcd;
+
+// === Transparent / Alpha Variants ===
+$bg-color-alpha: #ffffffcc; // 80% white
+$fg-color-alpha: #1a1a1acc; // 80% dark text
+$accent-alpha: #2d8cffcc;

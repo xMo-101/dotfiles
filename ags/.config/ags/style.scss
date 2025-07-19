@@ -1,0 +1,143 @@
+// @use "unset.scss";
+// @use "themes/catpuccin_mocha.scss" as c;
+//
+// $transparent: rgba(0, 0, 0, 0);
+//
+* {
+  font-family: "JetBrainsMono Nerd Font", "Cantarell", sans-serif;
+  font-weight: bold;
+  font-size: 18px;
+  transition: all 0.15s ease;
+  // color: c.$fg-color;
+  border-radius: 0;
+}
+
+//
+// // Boxes
+// box {
+//   background-color: transparent;
+// }
+//
+// // Buttons
+// menuitem,
+// button {
+//   background-color: c.$surface0;
+//   color: black;
+//   border: 2px solid c.$overlay0;
+//   padding: 10px 16px;
+//   transition: background-color 200ms, color 200ms;
+//
+//   &:hover {
+//     background-color: c.$overlay1;
+//     color: c.$accent-color;
+//   }
+//
+//   &:active {
+//     background-color: c.$overlay0;
+//   }
+//
+//   &:disabled {
+//     background-color: c.$surface1;
+//     color: c.$fg-muted;
+//   }
+// }
+//
+// .topbar__background {
+//   background-color: c.$bg-color-alpha;
+//   // border-bottom: 2px solid c.$overlay0;
+// }
+//
+// // Entry fields
+// entry {
+//   background-color: c.$surface1;
+//   color: c.$fg-color;
+//   border: 2px solid c.$overlay0;
+//   padding: 8px 12px;
+//
+//   &:focus {
+//     border-color: c.$accent-color;
+//     background-color: c.$surface2;
+//   }
+// }
+//
+// // Sliders
+// scale slider {
+//   background-color: c.$accent-color;
+//   min-width: 10px;
+//   min-height: 10px;
+// }
+//
+// scale trough {
+//   background-color: c.$surface1;
+//   min-height: 8px;
+// }
+//
+//
+// .widget_container {
+//   background-color: c.$bg-color;
+//   border: 2px solid c.$fg-muted;
+// }
+//
+// .ignore {
+//   all: unset;
+// }
+//
+// .transparent {
+//   background-color: $transparent;
+//   color: $transparent;
+//   border: none;
+//   box-shadow: none;
+// }
+//
+// .active-workspace-button {
+//   border: 0;
+//   background-color: darker(c.$accent-alt);
+//
+//   &:hover {
+//     background-color: darker(darker(darker(c.$accent-alt)));
+//   }
+// }
+//
+// // == SLIDER ==
+// .slider contents>trough slider,
+// .slider contents>trough progress {
+//   transition: all 0.2s ease-in-out;
+//   min-height: 1rem;
+//   min-width: 1rem;
+//   margin-left: -1rem;
+//   background-color: c.$surface1;
+//   border: 2px solid c.$overlay2;
+// }
+//
+// .slider contents>trough highlight {
+//   background-color: c.$accent-color;
+// }
+//
+// .slider.dragging contents>trough slider,
+// .slider.dragging contents>trough progress {
+//   box-shadow: 0 0 10px white;
+//   background-color: white;
+//   border-color: white;
+// }
+//
+// .slider.fine-tune.dragging contents>trough slider,
+// .slider.fine-tune.dragging contents>trough progress {
+//   min-width: 1.2rem;
+//   min-height: 1.2rem;
+//   margin-left: -1.2rem;
+// }
+//
+// // == CALENDER ==
+// .calender {
+//   background-color: c.$bg-color;
+//   color: c.$fg-color;
+//   padding: 10px;
+//
+//   .day {
+//     background-color: c.$surface1;
+//     color: c.$fg-color;
+//     border: 1px solid c.$overlay1;
+//     padding: 5px;
+//     margin: 2px;
+//   }
+// }
