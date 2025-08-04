@@ -20,8 +20,6 @@ function mprisStateIcon(status: Mpris.PlaybackStatus): string {
     : "media-playback-start-symbolic";
 }
 
-//function togglePlaying
-
 export function Mediaplayer() {
   const mpris = Mpris.get_default();
   const player = mpris.get_players().at(0);
@@ -37,8 +35,8 @@ export function Mediaplayer() {
         <box valign={Gtk.Align.CENTER}>
           <image
             class="cover"
-            overflow={Gtk.Overflow.HIDDEN}
             file={coverArt}
+            $={(self) => print(coverArt((v) => v))}
           ></image>
         </box>
         <box valign={Gtk.Align.CENTER} orientation={Gtk.Orientation.VERTICAL}>
@@ -48,7 +46,10 @@ export function Mediaplayer() {
           <centerbox orientation={Gtk.Orientation.HORIZONTAL}>
             <label $type="start" label={position} />
             <box $type="center" orientation={Gtk.Orientation.HORIZONTAL}>
-              <button onClicked={() => player?.pause}>
+              <button
+                class="button-long"
+                onClicked={() => player?.play_pause()}
+              >
                 <image
                   iconName={createBinding(
                     player,
@@ -64,3 +65,9 @@ export function Mediaplayer() {
     </box>
   );
 }
+
+// <image
+//   css={}
+//   overflow={Gtk.Overflow.HIDDEN}
+//   file={coverArt}
+// ></image>
