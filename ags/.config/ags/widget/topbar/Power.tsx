@@ -1,81 +1,81 @@
-import { App, Astal, Gtk } from "astal/gtk3";
+import { Astal, Gtk } from "ags/gtk4";
+import app from "ags/gtk4/app";
 import GLib from "gi://GLib";
 
+const WINDOW_NAME = "powerwindow";
+
 export function PowerWindow() {
-  const shutdownIcon = Gtk.Image.new_from_file(
-    `${GLib.get_home_dir()}/.config/ags/widget/topbar/icons/shutdown.svg`,
-  );
-  const rebootIcon = Gtk.Image.new_from_file(
-    `${GLib.get_home_dir()}/.config/ags/widget/topbar/icons/reboot.svg`,
-  );
-  const lockIcon = Gtk.Image.new_from_file(
-    `${GLib.get_home_dir()}/.config/ags/widget/topbar/icons/lock.svg`,
-  );
+  const btnWidth = 480;
+  const btnHeight = 640;
   return (
     <window
-      name="powerwindow"
+      name={WINDOW_NAME}
+      namespace={WINDOW_NAME}
       visible={false}
-      setup={(self) => {
-        App.add_window(self);
+      $={(self) => {
+        app.add_window(self);
       }}
-      anchor={
-        Astal.WindowAnchor.TOP |
-        Astal.WindowAnchor.RIGHT |
-        Astal.WindowAnchor.BOTTOM |
-        Astal.WindowAnchor.LEFT
-      }
-      exclusivity={Astal.Exclusivity.NORMAL}
-      focusOnMap={true}
-      acceptFocus={true}
+      keymode={Astal.Keymode.ON_DEMAND}
+      exclusivity={Astal.Exclusivity.EXCLUSIVE}
+      class="surface-0"
     >
-      <eventbox
+      <box
         hexpand={true}
         vexpand={true}
-        onButtonPressEvent={(self, event) => {
-          const target = self.get_toplevel();
-          if (target) target.visible = false;
-          return true;
+        $={(self) => {
+          const motion = new Gtk.EventControllerMotion();
+          motion.connect("leave", () => app.toggle_window(WINDOW_NAME));
+          self.add_controller(motion);
         }}
+        class={"transparent"}
       >
         <box
-          orientation={Gtk.Orientation.HORIZONTAL}
-          margin={200}
-          className="widget_container"
-          hexpand={true}
-          vexpand={true}
-          setup={(self) => self.grab_focus()}
+          orientation={Gtk.Orientation.VERTICAL}
+          hexpand
+          vexpand
+          halign={Gtk.Align.CENTER}
+          valign={Gtk.Align.CENTER}
+          class={"transparent"}
         >
-          <button
-            hexpand={true}
-            vexpand={true}
-            onClicked={() => GLib.spawn_command_line_async("hyprlock")}
-            image={lockIcon}
-            always_show_image={true}
-          />
-          <button
-            hexpand={true}
-            vexpand={true}
-            onClicked={() => GLib.spawn_command_line_async("shutdown now")}
-            image={shutdownIcon}
-            always_show_image={true}
-          />
-          <button
-            hexpand={true}
-            vexpand={true}
-            onClicked={() => GLib.spawn_command_line_async("reboot")}
-            image={rebootIcon}
-            always_show_image={true}
-          />
+          <box class="transparent" orientation={Gtk.Orientation.HORIZONTAL}>
+            <button
+              widthRequest={btnWidth}
+              heightRequest={btnHeight}
+              onClicked={() => GLib.spawn_command_line_async("hyprlock")}
+              class="button-power"
+            >
+              <image pixelSize={64} iconName="lock-symbolic" />
+            </button>
+            <button
+              widthRequest={btnWidth}
+              heightRequest={btnHeight}
+              onClicked={() => GLib.spawn_command_line_async("shutdown now")}
+              class="button-power"
+            >
+              <image iconName="system-shutdown-symbolic" pixelSize={64} />
+            </button>
+            <button
+              widthRequest={btnWidth}
+              heightRequest={btnHeight}
+              onClicked={() => GLib.spawn_command_line_async("reboot")}
+              class="button-power"
+            >
+              <image pixelSize={64} iconName="system-reboot-symbolic" />
+            </button>
+          </box>
         </box>
-      </eventbox>
+      </box>
     </window>
   );
 }
 
 export function Power() {
   return (
-    <button className="power" onClick={() => App.toggle_window("powerwindow")}>
-      <label label="" className="nf-icon" />
+    <button
+      class="button-long"
+      onClicked={() => app.toggle_window("powerwindow")}
+    >
+      <image iconName="system-shutdown" />
     </button>
   );
 }

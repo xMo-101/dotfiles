@@ -1,6 +1,7 @@
-import { App, Astal, Gdk, Gtk } from "astal/gtk3";
-import { TimeButton } from "../widget/topbar/NotificationCenter";
-import { WorkspaceView } from "../widget/topbar/Workspaces";
+import app from "ags/gtk4/app";
+import { Astal, Gdk, Gtk } from "ags/gtk4";
+import { WorkspaceView } from "../widget/topbar/Workspaces.tsx";
+
 import { Tray } from "../widget/topbar/Tray";
 import { Settings } from "../widget/topbar/Settings";
 import { Power } from "../widget/topbar/Power";
@@ -9,7 +10,7 @@ export function TopBar(monitor: Gdk.Monitor) {
   return (
     <window
       name="topbar"
-      className="TopBar"
+      namespace="topbar"
       gdkmonitor={monitor}
       exclusivity={Astal.Exclusivity.EXCLUSIVE}
       anchor={
@@ -17,19 +18,18 @@ export function TopBar(monitor: Gdk.Monitor) {
         Astal.WindowAnchor.LEFT |
         Astal.WindowAnchor.RIGHT
       }
-      application={App}
+      visible={true}
+      application={app}
+      class="surface-0"
     >
-      <centerbox className={"topbar__background"}>
-        <box className="left" hexpand halign={Gtk.Align.START}>
+      <centerbox class="transparent">
+        <box class="transparent" $type="start">
           <WorkspaceView />
         </box>
 
-        <box className="center" hexpand halign={Gtk.Align.CENTER}>
-          <TimeButton />
-        </box>
-
-        <box className="right" hexpand halign={Gtk.Align.END}>
+        <box class="transparent" $type="end">
           <Tray />
+          <Gtk.Separator />
           <Settings />
           <Power />
         </box>

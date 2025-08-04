@@ -1,20 +1,27 @@
-import { App } from "astal/gtk3";
+import app from "ags/gtk4/app";
 import style from "./style.scss";
 import { TopBar } from "./windows/TopBar";
-import { NotificationWindow } from "./widget/topbar/NotificationCenter";
-import { PowerWindow } from "./widget/topbar/Power";
-import { Settings, SettingsWindow } from "./widget/topbar/Settings";
-import NotificationPopups from "./windows/Notifications";
 
-App.start({
+import { PowerWindow } from "./widget/topbar/Power";
+import { SettingsWindow } from "./widget/topbar/Settings";
+import { Dock, DockRaiser } from "./widget/dock/Dock";
+import { Applauncher } from "./widget/app_launcher/AppLauncher";
+import { Notch } from "./widget/topbar/notch/notch";
+import { initHyprland } from "./utils/hyprland";
+
+app.start({
   css: style,
   main() {
-    App.get_monitors().map(TopBar);
-    App.get_monitors().map(NotificationWindow);
-    App.get_monitors().map(Settings);
-    App.get_monitors().map(SettingsWindow);
-    App.get_monitors().map(NotificationPopups);
-    App.get_monitors().map(PowerWindow);
-    const power = PowerWindow();
+    // Initialize one instance per monitor
+    const launcher = Applauncher();
+    app.get_monitors().forEach((monitor) => {
+      TopBar(monitor);
+      PowerWindow();
+      SettingsWindow();
+      Notch(monitor);
+      DockRaiser(monitor);
+      Dock();
+    });
+    initHyprland();
   },
 });

@@ -1,41 +1,41 @@
 // Base colors
-$bg-color: #ffffff; // base
-$bg-alt: #ffffff; // mantle
-$bg-darker: #ffffff; // crust
+$bg-color: #ffffff !default; // base
+$bg-alt: #ffffff !default; // mantle
+$bg-darker: #ffffff !default; // crust
 
-$fg-color: #ffffff; // text
-$fg-muted: #ffffff; // subtext0
-$fg-subtle: #ffffff; // subtext1
+$fg-color: #ffffff !default; // text
+$fg-muted: #ffffff !default; // subtext0
+$fg-subtle: #ffffff !default; // subtext1
 
 // Accent colors
-$accent-color: #ffffff; // blue
-$accent-alt: #ffffff; // lavender
+$accent-color: #ffffff !default; // blue
+$accent-alt: #ffffff !default; // lavender
 
-$error-color: #ffffff; // red
-$warning-color: #ffffff; // peach
-$success-color: #ffffff; // green
-$info-color: #ffffff; // sky
+$error-color: #ffffff !default; // red
+$warning-color: #ffffff !default; // peach
+$success-color: #ffffff !default; // green
+$info-color: #ffffff !default; // sky
 
 // UI surface
-$surface0: #ffffff;
-$surface1: #ffffff;
-$surface2: #ffffff;
+$surface0: #ffffff !default;
+$surface1: #ffffff !default;
+$surface2: #ffffff !default;
 
-$overlay0: #ffffff;
-$overlay1: #ffffff;
-$overlay2: #ffffff;
+$overlay0: #ffffff !default;
+$overlay1: #ffffff !default;
+$overlay2: #ffffff !default;
 
 // Extended palette
-$pink: #ffffff;
-$mauve: #ffffff;
-$maroon: #ffffff;
-$teal: #ffffff;
-$sapphire: #ffffff;
-$yellow: #ffffff;
-$rosewater: #ffffff;
-$flamingo: #ffffff;
+$pink: #ffffff !default;
+$mauve: #ffffff !default;
+$maroon: #ffffff !default;
+$teal: #ffffff !default;
+$sapphire: #ffffff !default;
+$yellow: #ffffff !default;
+$rosewater: #ffffff !default;
+$flamingo: #ffffff !default;
 
 // Transparent/alpha variants
-$bg-color-alpha: #ffffffcc;
-$fg-color-alpha: #ffffffcc;
-$accent-alpha: #ffffffcc;
+$bg-color-alpha: #ffffffcc !default;
+$fg-color-alpha: #ffffffcc !default;
+$accent-alpha: #ffffffcc !default;

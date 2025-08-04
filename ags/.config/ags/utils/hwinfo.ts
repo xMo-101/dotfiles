@@ -1,11 +1,12 @@
-// https://github.com/Neurarian/matshell/blob
-import GObject, { register, property } from "astal/gobject";
-import GLib from "gi://GLib";
+import GObject, { register, getter } from "ags/gobject";
+import GLib from "gi://GLib?version=2.0";
 import GTop from "gi://GTop";
-import { readFile } from "astal/file";
+import { readFile } from "ags/file";
 
 @register({ GTypeName: "SystemMonitor" })
 export default class SystemMonitor extends GObject.Object {
+  // @ts-ignore - notify method is provided by GObject at runtime
+  notify(property: string): void;
   static instance: SystemMonitor;
   private static readonly CPU_INFO_PATH = "/proc/cpuinfo";
 
@@ -84,9 +85,9 @@ export default class SystemMonitor extends GObject.Object {
 
     // Queue all notifications in batch
     this.queueNotifications([
-      "cpu-load",
-      "memory-used",
       "memory-utilization",
+      "memory-used",
+      "cpu-load",
       "cpu-frequency",
     ]);
   }
@@ -145,23 +146,23 @@ export default class SystemMonitor extends GObject.Object {
     return `${Math.round(value * 100) / 100} ${SystemMonitor.BYTE_UNITS[exp]}`;
   }
 
-  // Property getters
-  @property(Number)
+  // Property getters - updated to use @getter decorator
+  @getter(Number)
   get memoryUtilization(): number {
     return this.#memory.user / this.#memory.total;
   }
 
-  @property(String)
+  @getter(String)
   get memoryUsed(): string {
     return this.formatBytes(this.#memory.user);
   }
 
-  @property(Number)
+  @getter(Number)
   get cpuLoad(): number {
     return this.#cpuLoad;
   }
 
-  @property(Number)
+  @getter(Number)
   get cpuFrequency(): number {
     return Math.round(this.#cpuFreq);
   }

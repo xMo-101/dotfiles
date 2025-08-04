@@ -1,29 +1,31 @@
-import AstalTray from "gi://AstalTray?version=0.1";
-import { bind } from "astal";
-import { Gtk } from "astal/gtk3";
+import AstalTray from "gi://AstalTray";
+import { For, createBinding } from "ags";
+
+function TrayItem({ itemObject }) {
+  return (
+    <menubutton
+      $={(_self) => {
+        _self.menuModel = itemObject.menuModel;
+        _self.insert_action_group("dbusmenu", itemObject.actionGroup);
+        itemObject.connect("notify::action-group", () => {
+          _self.insert_action_group("dbusmenu", itemObject.actionGroup);
+        });
+      }}
+      class="button-long"
+      tooltipMarkup={createBinding(itemObject, "tooltip_markup")}
+    >
+      <image gicon={createBinding(itemObject, "gicon")} />
+    </menubutton>
+  );
+}
 
 export function Tray() {
-  const tray = AstalTray.get_default();
-  if (!tray) return <box className="ignore transparent" />;
-
+  const trayObject = AstalTray.get_default();
   return (
-    <box
-      className={"widget_container"}
-      orientation={Gtk.Orientation.HORIZONTAL}
-    >
-      {bind(tray, "items").as((items = []) =>
-        items.map((item) => (
-          <menubutton
-            className={"transparent"}
-            tooltipMarkup={bind(item, "tooltipMarkup")}
-            usePopover={false}
-            actionGroup={bind(item, "actionGroup").as((ag) => ["dbusmenu", ag])}
-            menuModel={bind(item, "menuModel")}
-          >
-            <icon gicon={bind(item, "gicon")} />
-          </menubutton>
-        )),
-      )}
+    <box homogeneous={true} class="transparent">
+      <For each={createBinding(trayObject, "items")}>
+        {(item) => <TrayItem itemObject={item} />}
+      </For>
     </box>
   );
 }

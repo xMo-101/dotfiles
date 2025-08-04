@@ -1,143 +1,175 @@
-// @use "unset.scss";
-// @use "themes/catpuccin_mocha.scss" as c;
-//
-// $transparent: rgba(0, 0, 0, 0);
-//
+@use "themes/nothingOS" as c;
+
 * {
   font-family: "JetBrainsMono Nerd Font", "Cantarell", sans-serif;
   font-weight: bold;
   font-size: 18px;
-  transition: all 0.15s ease;
-  // color: c.$fg-color;
-  border-radius: 0;
+  color: c.$fg-color;
+  box-shadow: none;
+  outline: none;
 }
 
-//
-// // Boxes
-// box {
-//   background-color: transparent;
-// }
-//
-// // Buttons
-// menuitem,
-// button {
-//   background-color: c.$surface0;
-//   color: black;
-//   border: 2px solid c.$overlay0;
-//   padding: 10px 16px;
-//   transition: background-color 200ms, color 200ms;
-//
-//   &:hover {
-//     background-color: c.$overlay1;
-//     color: c.$accent-color;
-//   }
-//
-//   &:active {
-//     background-color: c.$overlay0;
-//   }
-//
-//   &:disabled {
-//     background-color: c.$surface1;
-//     color: c.$fg-muted;
-//   }
-// }
-//
-// .topbar__background {
-//   background-color: c.$bg-color-alpha;
-//   // border-bottom: 2px solid c.$overlay0;
-// }
-//
-// // Entry fields
-// entry {
-//   background-color: c.$surface1;
-//   color: c.$fg-color;
-//   border: 2px solid c.$overlay0;
-//   padding: 8px 12px;
-//
-//   &:focus {
-//     border-color: c.$accent-color;
-//     background-color: c.$surface2;
-//   }
-// }
-//
-// // Sliders
-// scale slider {
-//   background-color: c.$accent-color;
-//   min-width: 10px;
-//   min-height: 10px;
-// }
-//
-// scale trough {
-//   background-color: c.$surface1;
-//   min-height: 8px;
-// }
-//
-//
-// .widget_container {
-//   background-color: c.$bg-color;
-//   border: 2px solid c.$fg-muted;
-// }
-//
-// .ignore {
-//   all: unset;
-// }
-//
-// .transparent {
-//   background-color: $transparent;
-//   color: $transparent;
-//   border: none;
-//   box-shadow: none;
-// }
-//
-// .active-workspace-button {
-//   border: 0;
-//   background-color: darker(c.$accent-alt);
-//
-//   &:hover {
-//     background-color: darker(darker(darker(c.$accent-alt)));
-//   }
-// }
-//
-// // == SLIDER ==
-// .slider contents>trough slider,
-// .slider contents>trough progress {
-//   transition: all 0.2s ease-in-out;
-//   min-height: 1rem;
-//   min-width: 1rem;
-//   margin-left: -1rem;
-//   background-color: c.$surface1;
-//   border: 2px solid c.$overlay2;
-// }
-//
-// .slider contents>trough highlight {
-//   background-color: c.$accent-color;
-// }
-//
-// .slider.dragging contents>trough slider,
-// .slider.dragging contents>trough progress {
-//   box-shadow: 0 0 10px white;
-//   background-color: white;
-//   border-color: white;
-// }
-//
-// .slider.fine-tune.dragging contents>trough slider,
-// .slider.fine-tune.dragging contents>trough progress {
-//   min-width: 1.2rem;
-//   min-height: 1.2rem;
-//   margin-left: -1.2rem;
-// }
-//
-// // == CALENDER ==
-// .calender {
-//   background-color: c.$bg-color;
-//   color: c.$fg-color;
-//   padding: 10px;
-//
-//   .day {
-//     background-color: c.$surface1;
-//     color: c.$fg-color;
-//     border: 1px solid c.$overlay1;
-//     padding: 5px;
-//     margin: 2px;
-//   }
-// }
+@mixin reset {
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+@mixin standard {
+  @include reset;
+  border-radius: 0;
+  transition: all 150ms cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+@mixin glassy {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+@mixin lowest-surface {
+  @include standard;
+  background-color: c.$surface0;
+}
+
+@mixin middle-surface {
+  @include standard;
+  background-color: c.$surface1;
+}
+
+@mixin highest-surface {
+  @include standard;
+  background-color: c.$surface2;
+}
+
+@mixin dim-small-button {
+  min-width: 40px;
+  min-height: 40px;
+}
+
+@mixin dim-mid-button {
+  min-width: 3em;
+  min-height: 3em;
+}
+
+@mixin dim-long-button {
+  min-width: 80px;
+  min-height: 40px;
+}
+
+@mixin standard-button($bg-color: c.$surface1, $hover-color: c.$bg-color) {
+  @include middle-surface;
+  color: c.$fg-color;
+  background-color: $bg-color;
+
+  &:hover {
+    background-color: $hover-color;
+  }
+}
+
+.hide {
+  opacity: 0;
+}
+
+.transparent {
+  background-color: transparent;
+}
+
+.surface-0 {
+  @include lowest-surface;
+}
+
+.surface-1 {
+  @include middle-surface;
+}
+
+.button-small {
+  @include standard-button;
+  @include dim-small-button;
+}
+
+.button-long {
+  @include standard-button;
+  @include dim-long-button;
+}
+
+.button-special {
+  @include standard-button($bg-color: c.$accent-alt);
+  @include dim-small-button;
+}
+
+.button-dock {
+  @include standard-button;
+  margin: 5px;
+
+  &:hover {
+    border: 5px solid c.$accent-alt;
+  }
+}
+
+.surface-glassy {
+  @include standard;
+  @include glassy;
+}
+
+button.button-power {
+  @include standard;
+  @include lowest-surface;
+
+  &:hover {
+    border: 1em solid c.$accent-color;
+  }
+}
+
+menubutton>button {
+  @include reset;
+  background-color: transparent;
+}
+
+.window-launcher {
+  @include lowest-surface;
+}
+
+.window-launcher entry {
+  @include highest-surface;
+  padding: 1em;
+}
+
+.window-launcher button {
+  @include middle-surface;
+  padding: 0.5em;
+
+  &:hover {
+    border-left: c.$accent-color solid 10px;
+    border-right: c.$accent-color solid 10px;
+  }
+}
+
+// the notch is not an actual part of the topbar, it just overlaps it.
+.notch {
+  min-height: 40px;
+  @include middle-surface;
+}
+
+// class to "hide" the dockraiser since it cant be fully transparent
+.dbg {
+  background-color: #4B0000; // this red is hard to percieve for the human eye
+  opacity: 0.001;
+}
+
+.transparent {
+  background-color: transparent;
+}
+
+@mixin notch-default {
+  @include lowest-surface;
+  min-height: 40px;
+}
+
+.notch-idle {
+  @include notch-default;
+}
+
+.notch-active {
+  @include notch-default;
+  background-color: c.$bg-darker;
+  padding: 10px
+}

@@ -1,0 +1,48 @@
+// ===============================
+// NothingOS Theme
+// ===============================
+
+// Backgrounds
+$bg-color: #1B1B1D; // LOWEST SURFACE BG
+$bg-alt: #222224; // Slightly lighter panels
+$bg-darker: #131314; // Even darker sections
+
+// Foreground
+$fg-color: #E2E3E8; // Bright white for main text
+$fg-muted: #9A9BA2; // Muted gray for secondary text
+$fg-subtle: #8E8E8E; // Subtle gray for hints/disabled
+
+// Accent
+$accent-color: #D71921; // Iconic Nothing red
+$accent-alt: #FF3B30; // Slightly brighter red for hover/focus
+
+// Status colors
+$error-color: #E34234; // Deep red for errors
+$warning-color: #FFB74D; // Warm amber warning
+$success-color: #4CAF50; // Green for success
+$info-color: #64B5F6; // Soft blue for info
+
+// UI surface (cards, panels)
+$surface0: #1A1B20; // NOTHINGOS LOWEST SURFACE
+$surface1: #222328;
+$surface2: #2F3036; // NOTHINGOS HIGHEST SURFACE
+
+// Overlays (menus, dialogs)
+$overlay0: rgba(27, 27, 29, 0.8);
+$overlay1: rgba(27, 27, 29, 0.9);
+$overlay2: rgba(27, 27, 29, 0.95);
+
+// Extended palette (optional brand accents)
+$pink: #E91E63;
+$mauve: #9C27B0;
+$maroon: #800000;
+$teal: #009688;
+$sapphire: #0F52BA;
+$yellow: #FFEB3B;
+$rosewater: #FFCDD2;
+$flamingo: #FF6F61;
+
+// Alpha variants
+$bg-color-alpha: rgba(27, 27, 29, 0.8);
+$fg-color-alpha: rgba(245, 245, 245, 0.8);
+$accent-alpha: rgba(215, 25, 33, 0.8);

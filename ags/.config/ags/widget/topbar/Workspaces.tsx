@@ -1,61 +1,69 @@
-import { bind } from "astal";
 import Hyprland from "gi://AstalHyprland";
+import { createBinding, For } from "ags";
 
-// https://github.com/h0i5/HighBar/blob/main/widget/components/Workspaces/index.tsx
-
-function InactiveWorkspace(props: { id: number }) {
-  return (
-    <button className="ignore">
-      <label label={props.id.toString()} />
-    </button>
-  );
-}
-
-function ActiveWorkspace(props: { id: number }) {
-  return (
-    <button className="ignore">
-      <label label={props.id.toString()} />
-    </button>
-  );
-}
-
+// TODO: Hitting CTRL+C while this is running causes errors:
+// (gjs:8103): Gjs-CRITICAL **: 16:15:54.761: Object Astal.Button (0x557e674e18f0), has been already disposed — impossible to access it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
 export function WorkspaceView() {
   const hyprland = Hyprland.get_default();
+
+  // WORKSPACEBUTTON ELEMENT
+  const WorkspaceButton = (props: {
+    visible: boolean;
+    id: number;
+    isActive: boolean;
+  }) => {
+    const classBinding = createBinding(
+      hyprland,
+      "focused_workspace",
+    )((fws) => {
+      return props.id === fws.id ? "button-special" : "button-small";
+    });
+    return (
+      <button
+        visible={props.visible}
+        class={classBinding}
+        label={props.id.toString()}
+        onClicked={() => hyprland.message(`dispatch workspace ${props.id}`)}
+      />
+    );
+  };
+
+  // GET WORKSPACE DATA (MATSHELL)
+  const workspaceButtons = createBinding(
+    hyprland,
+    "workspaces",
+  )((wss) => {
+    const activeWorkspaces = wss
+      // .filter((ws) => !(ws.id >= -99 && ws.id <= -2))
+      .sort((a, b) => a.id - b.id);
+
+    const maxId = activeWorkspaces[activeWorkspaces.length - 1]?.id || 1;
+
+    return [...Array(10)].map((_, i) => {
+      const id = i + 1;
+      const ws = activeWorkspaces.find((w) => w.id === id);
+
+      return {
+        id,
+        workspace: ws,
+        visible: maxId >= id,
+        isActive: ws !== undefined,
+      };
+    });
+  });
+
+  // RENDER WORKSPACES DYNAMICALLY
   return (
-    <box className="widget_container">
-      {bind(hyprland, "workspaces").as((workspaces) => {
-        workspaces.sort((a, b) => a.get_id() - b.get_id());
-        return (
-          <box className="transparent">
-            {workspaces.map((workspaces) => {
-              return bind(hyprland, "focused_workspace").as(
-                (focused_workspace) => {
-                  if (focused_workspace.get_id() === workspaces.get_id()) {
-                    return (
-                      <button
-                        onClick={() => {}}
-                        className="active-workspace-button ransparent"
-                      >
-                        <ActiveWorkspace id={focused_workspace.get_id()} />
-                      </button>
-                    );
-                  }
-                  return (
-                    <button
-                      onClick={() => {
-                        workspaces.focus();
-                      }}
-                      className="transparent"
-                    >
-                      <InactiveWorkspace id={workspaces.get_id()} />
-                    </button>
-                  );
-                },
-              );
-            })}
-          </box>
-        );
-      })}
+    <box>
+      <For each={workspaceButtons}>
+        {(ws) => (
+          <WorkspaceButton
+            visible={ws.visible}
+            id={ws.id}
+            isActive={ws.isActive}
+          />
+        )}
+      </For>
     </box>
   );
 }
