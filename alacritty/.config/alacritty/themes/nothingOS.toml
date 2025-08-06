@@ -1,0 +1,65 @@
+[colors.primary]
+background = "#1b1b1d"               # $bg-color-alpha
+foreground = "#f5f5f5"                 # $fg-color
+dim_foreground = "#8e8e8e"             # $fg-subtle
+bright_foreground = "#f5f5f5"
+
+[colors.cursor]
+text = "#1b1b1d"
+cursor = "#ffcdd2"                     # $rosewater
+
+[colors.vi_mode_cursor]
+text = "#1b1b1d"
+cursor = "#9c27b0"                     # $mauve
+
+[colors.search.matches]
+foreground = "#1b1b1d"
+background = "#c0c0c0"                 # $fg-muted
+
+[colors.search.focused_match]
+foreground = "#1b1b1d"
+background = "#4caf50"                 # $success-color
+
+[colors.footer_bar]
+foreground = "#1b1b1d"
+background = "#c0c0c0"                 # $fg-muted
+
+[colors.hints.start]
+foreground = "#1b1b1d"
+background = "#ffb74d"                 # $warning-color
+
+[colors.hints.end]
+foreground = "#1b1b1d"
+background = "#c0c0c0"
+
+[colors.selection]
+text = "#1b1b1d"
+background = "#ffcdd2"                 # $rosewater
+
+[colors.normal]
+black = "#1f1f21"                      # $surface0
+red = "#d71921"                        # $accent-color
+green = "#4caf50"                      # $success-color
+yellow = "#ffeb3b"                     # $yellow
+blue = "#0f52ba"                       # $sapphire
+magenta = "#9c27b0"                    # $mauve
+cyan = "#009688"                       # $teal
+white = "#c0c0c0"                      # $fg-muted
+
+[colors.bright]
+black = "#2a2a2c"                      # $surface1
+red = "#ff3b30"                        # $accent-alt
+green = "#4caf50"
+yellow = "#ffb74d"
+blue = "#64b5f6"                       # $info-color
+magenta = "#e91e63"                    # $pink
+cyan = "#8bd5ca"
+white = "#f5f5f5"                      # $fg-color
+
+[[colors.indexed_colors]]
+index = 16
+color = "#ff6f61"                      # $flamingo
+
+[[colors.indexed_colors]]
+index = 17
+color = "#ffcdd2"                      # $rosewater

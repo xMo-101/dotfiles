@@ -1,5 +1,6 @@
 [colors.primary]
-background = "#24273a"
+# background = "#24273a"
+background = "#1b1b1d"               # $bg-color-alpha
 foreground = "#cad3f5"
 dim_foreground = "#8087a2"
 bright_foreground = "#cad3f5"
