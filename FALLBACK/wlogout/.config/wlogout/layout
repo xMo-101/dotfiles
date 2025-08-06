@@ -1,0 +1,36 @@
+{
+    "label" : "lock",
+    "action" : "hyprlock",
+    "text" : "  Lock   ",
+    "keybind" : "l"
+}
+{
+    "label" : "logout",
+    "action" : "hyprctl dispatch exit",
+    "text" : " Logout  ",
+    "keybind" : "m"
+}
+{
+    "label" : "shutdown",
+    "action" : "shutdown now",
+    "text" : "Shutdown ",
+    "keybind" : "d"
+}
+{
+    "label" : "reboot",
+    "action" : "reboot",
+    "text" : " Reboot  ",
+    "keybind" : "r"
+}
+{
+    "label" : "suspend",
+    "action" : "systemctl suspend",
+    "text" : " Suspend ",
+    "keybind" : "s"
+}
+{
+    "label" : "hibernate",
+    "action" : "/home/user/.config/wlogout/scripts/anction hibernate",
+    "text" : "hibernate",
+    "keybind" : "h"
+}
