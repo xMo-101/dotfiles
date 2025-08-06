@@ -1,16 +1,10 @@
 #!/bin/bash
 # hyprpaper
-if pgrep -x "hyprpaper" > /dev/null
+if pgrep -x "swww-daemon" > /dev/null
 then
-	pkill hyprpaper
+	swww kill
 fi
-hyprpaper &
-# waybar:
-if pgrep -x "waybar" > /dev/null
-then
-	pkill waybar
-fi
-waybar &
+swww-daemon &
 # hypridle:
 hypridle &
 # udiskie:
@@ -25,15 +19,15 @@ then
     pkill nm-applet
 fi
 nm-applet &
-# nwg-dock-hyprland:
-if pgrep -x "nwg-dock-hyprla" > /dev/null
-then
-    pkill nwg-dock-hyprla
-fi
-nwg-dock-hyprland -d -f -lp 'end' -i 36 &
 # blueman:
 if pgrep -x "blueman-applet" > /dev/null
 then
     pkill blueman-applet
 fi
 blueman-applet &
+# ags:
+if ags list > /dev/null
+then
+    ags quit
+fi
+ags run -g4 &
