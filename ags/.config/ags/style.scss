@@ -170,6 +170,12 @@ menubutton>button {
 
 .notch-active {
   @include notch-default;
-  background-color: c.$bg-darker;
-  padding: 10px
+  padding: 1em;
+}
+
+.cover {
+  background-position: center;
+  background-size: cover;
+  min-width: 6em;
+  min-height: 6em;
 }
