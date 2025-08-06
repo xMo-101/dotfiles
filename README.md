@@ -4,8 +4,9 @@ My dotfiles for EndeavourOS
 
 ### TODO:
 
-- install.sh
-  - install dependencies
-  - move folders
-  - widgets using AGS by Aylur
-  - test 2
+- installer
+- documentation
+
+### FALLBACK:
+
+Since most of the apps have been replaced by custom AGS widgets, the config files of those apps have been moved to the FALLBACK folder.
