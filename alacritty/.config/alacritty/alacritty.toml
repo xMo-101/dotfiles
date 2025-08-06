@@ -1,6 +1,6 @@
 [cursor]
 blink_interval = 550
-unfocused_hollow = false
+unfocused_hollow = true
 
 [cursor.style]
 blinking = "On"
@@ -28,7 +28,7 @@ save_to_clipboard = false
 [window]
 decorations = "none"
 dynamic_title = true
-opacity = 0.8
+opacity = 0.9
 
 [window.padding]
 x = 15
