@@ -48,7 +48,7 @@ export function Notch(monitor: Gdk.Monitor) {
           setNotchActive(false);
           idle();
           setNotchClass("notch-idle");
-          resetPage();
+          // resetPage();
           win.set_default_size(-1, -1);
         });
         motion.connect("enter", () => {
@@ -62,11 +62,11 @@ export function Notch(monitor: Gdk.Monitor) {
       <box orientation={Gtk.Orientation.VERTICAL}>
         <box visible={notchActive} orientation={Gtk.Orientation.HORIZONTAL}>
           <button class="button-long" onClicked={prevPage} hexpand={true}>
-            <image pixelSize={24} iconName="go-previous-symbolic"></image>
+            <image pixelSize={1} iconName="go-previous-symbolic"></image>
           </button>
 
           <button class="button-long" onClicked={nextPage} hexpand={true}>
-            <image pixelSize={24} iconName="go-next-symbolic"></image>
+            <image pixelSize={1} iconName="go-next-symbolic"></image>
           </button>
         </box>
         <stack
