@@ -13,11 +13,11 @@
   padding: 0;
   margin: 0;
   border: none;
+  border-radius: 0;
 }
 
 @mixin standard {
   @include reset;
-  border-radius: 0;
   transition: all 150ms cubic-bezier(0.25, 1, 0.5, 1);
 }
 
@@ -189,9 +189,97 @@ menubutton>button {
   padding: 1em;
 }
 
-.cover {
-  background-position: center;
-  background-size: cover;
-  min-width: 6em;
-  min-height: 6em;
+scale {
+  trough {
+    @include reset;
+    background-color: c.$surface1;
+    min-height: 15px;
+  }
+
+  highlight {
+    @include reset;
+    background-color: c.$accent-color;
+  }
+
+  slider {
+    @include reset;
+    background-color: c.$accent-color;
+    border: 2px solid c.$fg-color;
+    min-width: 30px;
+  }
+}
+
+popover>* {
+  @include standard;
+  @include lowest-surface;
+  padding: 0.5em;
+}
+
+popover contents {
+  box-shadow: 0 0px 20px rgba(0, 0, 0, 0.35);
+}
+
+calendar.view {
+  @include lowest-surface;
+  padding: 0.5em;
+
+  header {
+    @include middle-surface;
+    padding: 0.25em;
+
+    button {
+      @include reset;
+      padding: 0.3em 0.6em;
+      background-color: c.$surface1;
+
+      &:hover {
+        background-color: c.$surface2;
+      }
+    }
+
+    label.year {
+      @include reset;
+      color: c.$fg-color;
+    }
+  }
+
+  grid {
+    padding-top: 0.5em;
+
+    label {
+      @include reset;
+      padding: 0.5em;
+      text-align: center;
+
+      &.day-name {
+        color: c.$fg-color;
+      }
+
+      &.day-number {
+        background-color: c.$surface0;
+
+        &:hover {
+          background-color: c.$surface1;
+        }
+
+        &.today {
+          background-color: c.$accent-color;
+          color: c.$bg-color;
+        }
+
+        &:selected {
+          background-color: c.$accent-alt;
+          color: c.$bg-color;
+        }
+
+        &.other-month {
+          opacity: 0.4;
+        }
+      }
+    }
+  }
+}
+
+separator {
+  margin: 0.5em;
 }
