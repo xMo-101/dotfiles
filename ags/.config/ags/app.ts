@@ -3,7 +3,7 @@ import style from "./style.scss";
 import { TopBar } from "./windows/TopBar";
 
 import { PowerWindow } from "./widget/topbar/Power";
-import { SettingsWindow } from "./widget/topbar/Settings";
+// import { SettingsWindow } from "./widget/topbar/Settings";
 import { Dock, DockRaiser } from "./widget/dock/Dock";
 import { Applauncher } from "./widget/app_launcher/AppLauncher";
 import { Notch } from "./widget/topbar/notch/notch";
@@ -17,7 +17,7 @@ app.start({
     app.get_monitors().forEach((monitor) => {
       TopBar(monitor);
       PowerWindow();
-      SettingsWindow();
+      // SettingsWindow();
       Notch(monitor);
       DockRaiser(monitor);
       Dock();
