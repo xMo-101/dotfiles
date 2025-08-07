@@ -2,7 +2,7 @@
 export { For, With, createState, createBinding } from "ags";
 export { Astal } from "ags/gtk4";
 export { app } from "ags/gtk4/app";
-export { execAsync } from "ags/process";
+export { execAsync, exec } from "ags/process";
 
 // gi://
 import Mpris from "gi://AstalMpris?version=0.1";
