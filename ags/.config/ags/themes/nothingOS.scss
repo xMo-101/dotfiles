@@ -10,7 +10,7 @@ $bg-darker: #131314; // Even darker sections
 // Foreground
 $fg-color: #E2E3E8; // Bright white for main text
 $fg-muted: #9A9BA2; // Muted gray for secondary text
-$fg-subtle: #8E8E8E; // Subtle gray for hints/disabled
+$fg-subtle: #E2E2E9; // Subtle gray for hints/disabled
 
 // Accent
 $accent-color: #D71921; // Iconic Nothing red
@@ -24,8 +24,8 @@ $info-color: #64B5F6; // Soft blue for info
 
 // UI surface (cards, panels)
 $surface0: #1A1B20; // NOTHINGOS LOWEST SURFACE
-$surface1: #222328;
-$surface2: #2F3036; // NOTHINGOS HIGHEST SURFACE
+$surface1: #2F3035; // NOTHINGOS HIGHEST SURFACE
+$surface2: #2F3036; // ADDITIONAL SURFACE
 
 // Overlays (menus, dialogs)
 $overlay0: rgba(27, 27, 29, 0.8);
