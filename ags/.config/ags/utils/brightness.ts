@@ -1,13 +1,10 @@
 import { exec, createState } from "@/utils/imports";
+import { formatFraction } from "@/utils/helper-functions";
 
 function getInitBrightness(): number {
   const current = Number(exec("brightnessctl get"));
   const max = Number(exec("brightnessctl max"));
   return current / max;
-}
-
-function formatFraction(fraction: number): string {
-  return (fraction * 100).toFixed(0).padStart(3, " ") + "%";
 }
 
 export const Brightness = {
