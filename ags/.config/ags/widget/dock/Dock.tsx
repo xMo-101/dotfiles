@@ -16,7 +16,7 @@ export function Dock() {
       visible={isDockVisible}
       heightRequest={100}
       exclusivity={Astal.Exclusivity.TOP} // <- make it top so it overlaps other windows
-      class="surface-0"
+      class="surface-0 border"
     >
       <box
         $={(self) => {

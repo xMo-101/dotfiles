@@ -7,6 +7,7 @@ const WINDOW_NAME = "powerwindow";
 export function PowerWindow() {
   const btnWidth = 480;
   const btnHeight = 640;
+  const iconSize = 104;
   return (
     <window
       name={WINDOW_NAME}
@@ -44,7 +45,7 @@ export function PowerWindow() {
               onClicked={() => GLib.spawn_command_line_async("hyprlock")}
               class="button-power"
             >
-              <image pixelSize={64} iconName="lock-symbolic" />
+              <image pixelSize={iconSize} iconName="lock-symbolic" />
             </button>
             <button
               widthRequest={btnWidth}
@@ -52,7 +53,7 @@ export function PowerWindow() {
               onClicked={() => GLib.spawn_command_line_async("shutdown now")}
               class="button-power"
             >
-              <image iconName="system-shutdown-symbolic" pixelSize={64} />
+              <image iconName="system-shutdown-symbolic" pixelSize={iconSize} />
             </button>
             <button
               widthRequest={btnWidth}
@@ -60,7 +61,7 @@ export function PowerWindow() {
               onClicked={() => GLib.spawn_command_line_async("reboot")}
               class="button-power"
             >
-              <image pixelSize={64} iconName="system-reboot-symbolic" />
+              <image pixelSize={iconSize} iconName="system-reboot-symbolic" />
             </button>
           </box>
         </box>

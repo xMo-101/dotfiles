@@ -135,7 +135,7 @@ export function Mediaplayer() {
       $type="named"
       name="page-mediaplayer"
       orientation={Gtk.Orientation.VERTICAL}
-      spacing={10}
+      spacing={12}
     >
       <For each={players}>{(plr) => <MusicBox player={plr} />}</For>
     </box>

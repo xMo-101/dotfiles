@@ -14,7 +14,7 @@ function TrayItem({ itemObject }) {
       class="button-long"
       tooltipMarkup={createBinding(itemObject, "tooltip_markup")}
     >
-      <image gicon={createBinding(itemObject, "gicon")} />
+      <image class="icon" gicon={createBinding(itemObject, "gicon")} />
     </menubutton>
   );
 }

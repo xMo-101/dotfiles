@@ -11,7 +11,7 @@ function ButtonTemplate({
 }) {
   return (
     <button class="button-large" onClicked={action} tooltip_text={tooltip_text}>
-      <image iconName={icon} pixelSize={32} />
+      <image iconName={icon} pixelSize={42} />
     </button>
   );
 }

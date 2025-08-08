@@ -1,5 +1,4 @@
-import GLib from "gi://GLib";
-import Gtk from "gi://Gtk?version=4.0";
+import { GLib, Gtk } from "@/utils/imports";
 
 const pinnedApps = [
   { label: "brave-browser", icon: "brave-desktop", cmd: "brave" },
@@ -37,7 +36,7 @@ export function DockApps() {
           }}
           class="button-dock"
         >
-          <image pixelSize={48} iconName={icon} />
+          <image pixelSize={52} iconName={icon} />
         </button>
       ))}
     </box>

@@ -1,5 +1,6 @@
 import { Gtk, createBinding } from "@/utils/imports";
 import { Brightness } from "@/utils/brightness";
+import { formatFraction } from "@/utils/helper-functions";
 import Wp from "gi://AstalWp";
 
 export function Settings() {
@@ -7,30 +8,16 @@ export function Settings() {
   const speaker = wp?.get_default_speaker();
   const mic = wp?.get_default_microphone();
   const brightness = Brightness.create();
-  const audioVolText = createBinding(
-    speaker,
-    "volume",
-  )(
-    (v) =>
-      `${Math.round(v * 100)
-        .toString()
-        .padStart(3, " ")}%`,
-  );
-  const micVolText = createBinding(
-    mic,
-    "volume",
-  )(
-    (v) =>
-      `${Math.round(v * 100)
-        .toString()
-        .padStart(3, " ")}%`,
-  );
+
+  const audioVolText = createBinding(speaker, "volume")(formatFraction);
+  const micVolText = createBinding(mic, "volume")(formatFraction);
 
   return (
     <menubutton class="button-long">
-      <image iconName="preferences-system-symbolic"></image>
+      <image iconName="preferences-system-symbolic" />
       <Gtk.Popover widthRequest={400}>
-        <box spacing={4} orientation={Gtk.Orientation.VERTICAL}>
+        <box spacing={12} orientation={Gtk.Orientation.VERTICAL}>
+          {/* Speaker volume */}
           <box
             orientation={Gtk.Orientation.HORIZONTAL}
             hexpand
@@ -39,28 +26,31 @@ export function Settings() {
             <Gtk.GestureClick
               onPressed={() => speaker?.set_mute(!speaker.get_mute())}
             />
+            <image
+              iconName={createBinding(speaker, "volume_icon")}
+              valign={Gtk.Align.CENTER}
+              class="slider-icon"
+            />
+            <Gtk.Separator orientation={Gtk.Orientation.VERTICAL} />
             <slider
-              class="slider with-icon"
+              class="slider"
               orientation={Gtk.Orientation.HORIZONTAL}
               value={createBinding(speaker, "volume")}
               min={0}
               max={1}
-              step={0.1}
+              step={0.01}
               onChangeValue={({ value }) => speaker.set_volume(value)}
               hexpand
             />
-            <image
-              iconName={createBinding(speaker, "volume_icon")}
-              halign={Gtk.Align.START}
-              valign={Gtk.Align.CENTER}
-              class="slider-icon"
-            />
+            <Gtk.Separator orientation={Gtk.Orientation.VERTICAL} />
             <label
               label={audioVolText}
               valign={Gtk.Align.CENTER}
               class="volume-text"
             />
           </box>
+
+          {/* Mic volume */}
           <box
             orientation={Gtk.Orientation.HORIZONTAL}
             hexpand
@@ -69,8 +59,14 @@ export function Settings() {
             <Gtk.GestureClick
               onPressed={() => mic?.set_mute(!mic.get_mute())}
             />
+            <image
+              iconName={createBinding(mic, "volume_icon")}
+              valign={Gtk.Align.CENTER}
+              class="slider-icon"
+            />
+            <Gtk.Separator orientation={Gtk.Orientation.VERTICAL} />
             <slider
-              class="slider with-icon"
+              class="slider"
               orientation={Gtk.Orientation.HORIZONTAL}
               value={createBinding(mic, "volume")}
               min={0}
@@ -79,12 +75,7 @@ export function Settings() {
               onChangeValue={({ value }) => mic.set_volume(value)}
               hexpand
             />
-            <image
-              iconName={createBinding(mic, "volume_icon")}
-              halign={Gtk.Align.START}
-              valign={Gtk.Align.CENTER}
-              class="slider-icon"
-            />
+            <Gtk.Separator orientation={Gtk.Orientation.VERTICAL} />
             <label
               label={micVolText}
               valign={Gtk.Align.CENTER}
@@ -92,13 +83,20 @@ export function Settings() {
             />
           </box>
 
+          {/* Brightness */}
           <box
             orientation={Gtk.Orientation.HORIZONTAL}
             hexpand
             valign={Gtk.Align.CENTER}
           >
+            <image
+              iconName="display-brightness-symbolic"
+              valign={Gtk.Align.CENTER}
+              class="slider-icon"
+            />
+            <Gtk.Separator orientation={Gtk.Orientation.VERTICAL} />
             <slider
-              class="slider with-icon"
+              class="slider"
               orientation={Gtk.Orientation.HORIZONTAL}
               min={0}
               max={1}
@@ -107,12 +105,7 @@ export function Settings() {
               onValueChanged={({ value }) => brightness.setBrightness(value)}
               hexpand
             />
-            <image
-              iconName="display-brightness-symbolic"
-              halign={Gtk.Align.START}
-              valign={Gtk.Align.CENTER}
-              class="slider-icon"
-            />
+            <Gtk.Separator orientation={Gtk.Orientation.VERTICAL} />
             <label
               label={brightness.text}
               valign={Gtk.Align.CENTER}
