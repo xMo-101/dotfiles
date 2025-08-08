@@ -99,7 +99,7 @@ function ColorpickerButton() {
 
 function HyprlandReloadButton() {
   const action = () =>
-    GLib.spawn_command_line_async(`${scripts()}/utils/hyprreload.sh`);
+    GLib.spawn_command_line_async(`${scripts()}/utils/hypr-reload.sh`);
   return <ButtonTemplate icon="view-refresh-symbolic" action={action} />;
 }
 
@@ -152,10 +152,10 @@ function SunsetButton() {
   );
 }
 
-export function Opts() {
+function content() {
   const childrenPerLine = 5;
   return (
-    <box $type="named" name="page-opts" orientation={Gtk.Orientation.VERTICAL}>
+    <box orientation={Gtk.Orientation.VERTICAL}>
       <Gtk.FlowBox
         homogeneous={true}
         maxChildrenPerLine={childrenPerLine}
@@ -178,5 +178,11 @@ export function Opts() {
         <SunsetButton />
       </Gtk.FlowBox>
     </box>
+  );
+}
+
+export function Opts() {
+  return (
+    <Gtk.StackPage title="1" $type="named" name="page-opts" child={content()} />
   );
 }

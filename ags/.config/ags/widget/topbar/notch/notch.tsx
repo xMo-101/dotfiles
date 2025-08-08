@@ -1,6 +1,7 @@
 import app from "ags/gtk4/app";
-import { Astal, Gtk, Gdk } from "ags/gtk4";
+import { Gtk, Gdk } from "ags/gtk4";
 import { createState } from "ags";
+import Astal from "gi://Astal";
 
 // IMPORT STACK PAGES
 import { Opts } from "./modules/Opts";
@@ -12,24 +13,26 @@ export function Notch(monitor: Gdk.Monitor) {
   const idlePage = "page-time";
   const PAGES = ["page-calendar", "page-mediaplayer", "page-opts"];
   let currentPage = 0;
-  const [visiblePage, setVisiblePage] = createState(idlePage); // start with idle
-  const [notchActive, setNotchActive] = createState(false);
 
-  const resetPage = () => (currentPage = 0);
+  const [visiblePage, setVisiblePage] = createState(idlePage);
+  const [notchActive, setNotchActive] = createState(false);
+  const [notchClass, setNotchClass] = createState("notch-idle");
+
   const initalPage = () => setVisiblePage(PAGES.at(currentPage));
   const idle = () => setVisiblePage(idlePage);
+
   const nextPage = () => {
     currentPage = (currentPage + 1) % PAGES.length;
     setVisiblePage(PAGES.at(currentPage));
   };
+
   const prevPage = () => {
-    currentPage = (currentPage - 1) % PAGES.length;
+    currentPage = (currentPage - 1 + PAGES.length) % PAGES.length;
     setVisiblePage(PAGES.at(currentPage));
   };
-  let win = null;
-  let stack = null;
 
-  const [notchClass, setNotchClass] = createState("notch-idle");
+  let win: Gtk.Window | null = null;
+  let stack: Gtk.Stack | null = null;
 
   return (
     <window
@@ -39,46 +42,52 @@ export function Notch(monitor: Gdk.Monitor) {
       gdkmonitor={monitor}
       visible={true}
       exclusivity={Astal.Exclusivity.IGNORE}
+      // keymode={Astal.Keymode.ON_DEMAND}
       anchor={Astal.WindowAnchor.TOP}
       class={notchClass}
       $={(self) => {
         win = self;
+
         const motion = new Gtk.EventControllerMotion();
         motion.connect("leave", () => {
+          self.keymode = Astal.Keymode.NONE; // prevent keyboard input without hover
           setNotchActive(false);
           idle();
           setNotchClass("notch-idle");
-          // resetPage();
-          win.set_default_size(-1, -1);
+          win?.set_default_size(-1, -1);
         });
         motion.connect("enter", () => {
+          self.keymode = Astal.Keymode.ON_DEMAND; // accept keyboard input
           setNotchActive(true);
           setNotchClass("notch-active");
           initalPage();
         });
         self.add_controller(motion);
+
+        // Keyboard controller: space = next page, shift+space = prev page
+        const key = new Gtk.EventControllerKey();
+        key.connect("key-pressed", (_ctrl, keyval, _keycode, state) => {
+          if (keyval === Gdk.KEY_space) {
+            if (state & Gdk.ModifierType.SHIFT_MASK) prevPage();
+            else nextPage();
+            return true; // handled
+          }
+          return false;
+        });
+        self.add_controller(key);
       }}
     >
       <box orientation={Gtk.Orientation.VERTICAL}>
-        <box visible={notchActive} orientation={Gtk.Orientation.HORIZONTAL}>
-          <button class="button-long" onClicked={prevPage} hexpand={true}>
-            <image pixelSize={24} iconName="go-previous-symbolic"></image>
-          </button>
-
-          <button class="button-long" onClicked={nextPage} hexpand={true}>
-            <image pixelSize={24} iconName="go-next-symbolic"></image>
-          </button>
-        </box>
         <stack
           hhomogeneous={false}
           vhomogeneous={false}
-          hexpand={true}
-          vexpand={true}
-          interpolate_size={true}
+          hexpand
+          vexpand
+          interpolate_size
           $={(self) => {
             stack = self;
             self.connect("notify::visible-child", () => {
-              win.set_default_size(-1, -1);
+              win?.set_default_size(-1, -1);
             });
           }}
           visibleChildName={visiblePage}

@@ -8,7 +8,7 @@ export function Cpu() {
 
   return (
     <box class="info-small">
-      <image pixelSize={20} iconName="cpu-symbolic" />
+      <image pixelSize={20} iconName="computer-laptop-symbolic" />
       <label label={load(formatFraction)} />
     </box>
   );

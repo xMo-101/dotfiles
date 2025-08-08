@@ -124,20 +124,25 @@ function MusicBox({ player }: { player: Mpris.Player | null | undefined }) {
   );
 }
 
-export function Mediaplayer() {
+function content() {
   const mpris = Mpris.get_default();
   const players = createBinding(mpris, "players").as((p) =>
     (p || []).filter((pl) => !!pl),
   );
-
   return (
-    <box
-      $type="named"
-      name="page-mediaplayer"
-      orientation={Gtk.Orientation.VERTICAL}
-      spacing={12}
-    >
+    <box spacing={12}>
       <For each={players}>{(plr) => <MusicBox player={plr} />}</For>
     </box>
+  );
+}
+
+export function Mediaplayer() {
+  return (
+    <Gtk.StackPage
+      title="3"
+      $type="named"
+      name="page-mediaplayer"
+      child={content()}
+    />
   );
 }
