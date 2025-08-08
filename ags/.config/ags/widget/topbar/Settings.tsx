@@ -1,6 +1,9 @@
 import { Gtk, createBinding } from "@/utils/imports";
 import { Brightness } from "@/utils/brightness";
 import { formatFraction } from "@/utils/helper-functions";
+import { myBattery } from "./modules/battery";
+import { Cpu } from "./modules/cpu";
+import { Memory } from "./modules/memory";
 import Wp from "gi://AstalWp";
 
 export function Settings() {
@@ -111,6 +114,14 @@ export function Settings() {
               valign={Gtk.Align.CENTER}
               class="volume-text"
             />
+          </box>
+          <Gtk.Separator class="compact" />
+          <box>
+            {myBattery()}
+            <box hexpand />
+            {Cpu()}
+            <box hexpand />
+            {Memory()}
           </box>
         </box>
       </Gtk.Popover>

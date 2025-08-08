@@ -1,8 +1,6 @@
 import Hyprland from "gi://AstalHyprland";
 import { createBinding, For } from "ags";
 
-// TODO: Hitting CTRL+C while this is running causes errors:
-// (gjs:8103): Gjs-CRITICAL **: 16:15:54.761: Object Astal.Button (0x557e674e18f0), has been already disposed — impossible to access it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs.
 export function WorkspaceView() {
   const hyprland = Hyprland.get_default();
 
