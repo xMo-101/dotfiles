@@ -8,7 +8,7 @@ if [ -f "$PIDFILE" ]; then
     rm "$PIDFILE"
     notify-send "Recording stopped"
 else
-    wf-recorder -f "$OUT" &
+    wf-recorder -a -f "$OUT" &
     echo $! > "$PIDFILE"
     notify-send "Recording started"
 fi
