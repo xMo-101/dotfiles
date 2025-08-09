@@ -28,7 +28,7 @@ save_to_clipboard = false
 [window]
 decorations = "none"
 dynamic_title = true
-opacity = 0.9
+opacity = 1.0
 
 [window.padding]
 x = 15
@@ -38,5 +38,5 @@ y = 15
 live_config_reload = true
 
 import = [
-   "~/.config/alacritty/themes/catpuccin-macchiato.toml"
+   "~/.config/alacritty/theme.toml"
 ]
