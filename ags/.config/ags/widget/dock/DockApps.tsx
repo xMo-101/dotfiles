@@ -3,9 +3,9 @@ import { GLib, Gtk } from "@/utils/imports";
 const pinnedApps = [
   { label: "brave-browser", icon: "brave-desktop", cmd: "brave" },
   { label: "discord", icon: "discord", cmd: "discord" },
-  { label: "neovim", icon: "nvim", cmd: "alacritty -e nvim" },
-  { icon: "Alacritty", cmd: "alacritty", label: "alacritty" },
-  { icon: "nautilus", cmd: "nautilus", label: "explorer" },
+  { label: "neovim", icon: "nvim", cmd: "kitty -e nvim" },
+  { icon: "kitty", cmd: "kitty", label: "kitty terminal" },
+  { icon: "yazi", cmd: "kitty -e yazi", label: "explorer" },
   { icon: "endeavouros-icon", cmd: "eos-update", label: "update" },
   {
     icon: "user-trash-symbolic",

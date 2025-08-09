@@ -1,6 +1,6 @@
 # dotfiles
 
-My dotfiles for EndeavourOS
+My dotfiles for EndeavourOS x Hyprland: MiftahDE
 
 ### TODO:
 

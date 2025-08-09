@@ -1,9 +1,0 @@
-# uses colors from ~/.config/hypr/colors/colors.toml
-
-[colors.primary]
-background = "#1A1B20"
-foreground = "#E2E3E8"
-
-[colors.normal]
-blue = "#64B5F6" 
-red = "#D71921"

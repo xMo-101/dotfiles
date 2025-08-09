@@ -26,8 +26,5 @@ then
 fi
 blueman-applet &
 # ags:
-if ags list > /dev/null
-then
-    ags quit
-fi
+ags quit # no check because weird behaviour
 ags run -g4 &
