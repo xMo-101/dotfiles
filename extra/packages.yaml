@@ -1,0 +1,53 @@
+os: EndeavourOS
+
+pacman:
+  - hyprland
+  - git
+  - yay
+  - alacritty
+  - bash-completion
+  - wl-clipboard
+  - adwaita-icon-theme
+  - papirus-icon-theme
+  - udiskie
+  - nwg-look
+  - nautilus
+  - hyprshot
+  - hyprpicker
+  - hypridle
+  - hyprlock
+  - gnome-calculator
+  - obs-studio
+  - totem
+  - loupe
+  - cmatrix
+  - cava
+  - swww
+  - speedtest-cli
+  - wf-recorder
+  - ascii
+
+yay:
+  - stow
+  - rofi
+  - neofetch
+  - ttf-jetbrains-mono-nerd
+  - brave-bin
+  - waypaper
+  - aylurs-gtk-shell-git:
+      version: 3.0.0
+      deps:
+        - libastal-meta
+  - oh-my-posh
+
+npm:
+  - sass
+  - typescript
+
+browser_extras:
+  - name: Nothing Font
+    url: https://fontstruct.com
+  - name: macOS Cursor Theme
+    url: https://www.gnome-look.org/p/1408466
+  - name: WhiteSur Dark Theme
+    url: https://www.gnome-look.org/p/1403328

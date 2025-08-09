@@ -10,8 +10,12 @@ PS1='[\u@\h \W]\$ '
 # OH MY POSH:
 eval "$(oh-my-posh init bash --config /home/moeez/.config/oh-my-posh/omp_config.omp.json)"
 
-# RUN NEOFETCH ON TERMINAL LAUNCH:
-neofetch
+# NEOFETCH:
+if [ -f /usr/bin/neofetch ]; then
+    neofetch
+fi
 
 # BASH-COMPLETION:
-# [[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && . /usr/share/bash-completion/bash_completion
+if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+fi
