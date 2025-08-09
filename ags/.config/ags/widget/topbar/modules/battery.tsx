@@ -1,4 +1,4 @@
-import Battery from "gi://AstalBattery";
+import { Battery } from "@/utils/imports";
 import { createBinding } from "@/utils/imports";
 import { formatFraction } from "@/utils/helper-functions";
 

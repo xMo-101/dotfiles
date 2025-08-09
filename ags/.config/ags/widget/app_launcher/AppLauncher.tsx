@@ -1,8 +1,4 @@
-import Apps from "gi://AstalApps";
-import { Astal, Gdk } from "ags/gtk4";
-import Gtk from "gi://Gtk?version=4.0";
-import app from "ags/gtk4/app";
-import { createState, For } from "ags";
+import { createState, For, app, Gtk, Astal, Apps } from "@/utils/imports";
 
 const MAX_ITEMS = 8;
 

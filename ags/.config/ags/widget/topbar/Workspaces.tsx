@@ -1,5 +1,4 @@
-import Hyprland from "gi://AstalHyprland";
-import { createBinding, For } from "ags";
+import { Hyprland, createBinding, For } from "@/utils/imports";
 
 export function WorkspaceView() {
   const hyprland = Hyprland.get_default();

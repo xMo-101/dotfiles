@@ -1,6 +1,4 @@
-import { Astal, Gtk } from "ags/gtk4";
-import app from "ags/gtk4/app";
-import GLib from "gi://GLib";
+import { Astal, Gtk, app, GLib } from "@/utils/imports";
 
 const WINDOW_NAME = "powerwindow";
 

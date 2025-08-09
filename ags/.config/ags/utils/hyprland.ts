@@ -1,7 +1,6 @@
-import app from "ags/gtk4/app";
-import AstalHyprland from "gi://AstalHyprland";
+import { app, Hyprland } from "@/utils/imports";
 
-const hyprland = AstalHyprland.get_default();
+const hyprland = Hyprland.get_default();
 
 // Default positions (self-contained, no external options)
 const ANIMATIONS = {

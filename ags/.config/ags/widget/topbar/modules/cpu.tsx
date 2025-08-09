@@ -1,5 +1,5 @@
-import SystemMonitor from "../../../utils/hwinfo";
-import { Gtk, createBinding } from "@/utils/imports";
+import SystemMonitor from "@/utils/hwinfo";
+import { createBinding } from "@/utils/imports";
 import { formatFraction } from "@/utils/helper-functions";
 
 export function Cpu() {

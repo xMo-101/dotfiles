@@ -1,4 +1,4 @@
-import Gtk from "gi://Gtk?version=4.0";
+import { Gtk } from "@/utils/imports";
 
 function content() {
   return <Gtk.Calendar />;

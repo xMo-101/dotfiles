@@ -1,10 +1,11 @@
 import { Gtk, createBinding } from "@/utils/imports";
 import { Brightness } from "@/utils/brightness";
 import { formatFraction } from "@/utils/helper-functions";
+
 import { myBattery } from "./modules/battery";
 import { Cpu } from "./modules/cpu";
 import { Memory } from "./modules/memory";
-import Wp from "gi://AstalWp";
+import { Wp } from "@/utils/imports";
 
 export function Settings() {
   const wp = Wp.get_default();

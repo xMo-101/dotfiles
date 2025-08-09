@@ -1,7 +1,6 @@
 import GObject, { register, getter } from "ags/gobject";
-import GLib from "gi://GLib?version=2.0";
 import GTop from "gi://GTop";
-import { readFile } from "ags/file";
+import { readFile, GLib } from "@/utils/imports";
 
 @register({ GTypeName: "SystemMonitor" })
 export default class SystemMonitor extends GObject.Object {

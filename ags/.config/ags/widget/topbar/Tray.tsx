@@ -1,5 +1,4 @@
-import AstalTray from "gi://AstalTray";
-import { For, createBinding } from "ags";
+import { AstalTray, createBinding, For } from "@/utils/imports";
 
 function TrayItem({ itemObject }) {
   return (

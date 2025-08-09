@@ -1,4 +1,5 @@
-import GLib from "gi://GLib";
+import { GLib } from "@/utils/imports";
+
 export function deviceType() {
   const path = "/sys/class/power_supply/BAT1";
   const exists = GLib.file_test(path, GLib.FileTest.EXISTS);
