@@ -1,4 +1,5 @@
-import { createState, For, app, Gtk, Astal, Apps } from "@/utils/imports";
+import { createState, For, Gtk, Astal, Apps } from "@/utils/imports";
+import app from "ags/gtk4/app";
 
 const MAX_ITEMS = 8;
 

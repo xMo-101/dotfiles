@@ -1,4 +1,5 @@
-import { app, Gtk, Gdk, createState, Astal } from "@/utils/imports";
+import { Gtk, Gdk, createState, Astal } from "@/utils/imports";
+import app from "ags/gtk4/app";
 
 // IMPORT STACK PAGES
 import { Opts } from "./modules/Opts";

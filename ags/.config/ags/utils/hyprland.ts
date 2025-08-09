@@ -1,4 +1,5 @@
-import { app, Hyprland } from "@/utils/imports";
+import { Hyprland } from "@/utils/imports";
+import app from "ags/gtk4/app";
 
 const hyprland = Hyprland.get_default();
 

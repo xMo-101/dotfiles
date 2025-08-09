@@ -1,4 +1,4 @@
-import { Gtk, createPoll, app } from "@/utils/imports";
+import { Gtk, createPoll } from "@/utils/imports";
 
 function content() {
   const timedate = createPoll("", 1000, "date '+%H:%M:%S   %d.%m.%Y'");

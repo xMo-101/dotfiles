@@ -1,5 +1,5 @@
 import app from "ags/gtk4/app";
-import { Astal, Gdk, Gtk } from "ags/gtk4";
+import { Astal, Gdk, Gtk } from "@/utils/imports.js";
 import { WorkspaceView } from "../widget/topbar/Workspaces.tsx";
 
 import { Tray } from "../widget/topbar/Tray";

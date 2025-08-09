@@ -1,5 +1,6 @@
-import { Astal, Gdk, Gtk, app, createState } from "@/utils/imports";
+import { Astal, Gdk, Gtk, createState } from "@/utils/imports";
 import { DockApps } from "./DockApps";
+import app from "ags/gtk4/app";
 
 const [isDockVisible, setDockVisibility] = createState(false);
 
