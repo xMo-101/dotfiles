@@ -35,6 +35,5 @@ vim.opt.isfname:append("@-@")
 vim.opt.updatetime = 50
 
 vim.opt.cursorline = false -- Highlight the current line
-vim.cmd("colorscheme dracula")
--- vim.api.nvim_set_hl(0, "CursorLine", { bg = "#2E3440", fg = "NONE" }) -- Set the highlight-color of the current line
+vim.cmd("colorscheme github_dark_dimmed")
 -- vim.opt.colorcolumn = "80"
