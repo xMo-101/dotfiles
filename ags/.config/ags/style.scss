@@ -299,3 +299,13 @@ stackswitcher button {
   min-height: 32px;
   min-width: 48px;
 }
+
+.notif {
+  padding: 12px;
+  margin: 6px;
+  @include window-border;
+}
+
+.notif-container {
+  @include container;
+}

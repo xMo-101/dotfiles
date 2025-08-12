@@ -43,7 +43,9 @@ export function Settings() {
               min={0}
               max={1}
               step={0.01}
-              onChangeValue={({ value }) => speaker.set_volume(value)}
+              onChangeValue={({ value }) => {
+                speaker.set_volume(value);
+              }}
               hexpand
             />
             <Gtk.Separator orientation={Gtk.Orientation.VERTICAL} />

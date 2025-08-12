@@ -5,10 +5,51 @@ import { Opts } from "./modules/Opts";
 import { Mediaplayer } from "./modules/Mediaplayer";
 import { Calendar } from "./modules/Calendar";
 import { Time } from "./modules/Time";
-import { NotificationPopup } from "./modules/NotificationPopup";
 
 import AstalNotifd from "gi://AstalNotifd?version=0.1";
 import { Notification } from "./modules/Notification";
+
+function handleNotifications(stack: Gtk.Stack, Notifd: AstalNotifd.Notifd) {
+  const pageName = "page-notifs";
+  const NotificationsContainer: Gtk.Box = (
+    <box
+      $type="name"
+      name={pageName}
+      class={"notif-container"}
+      orientation={Gtk.Orientation.VERTICAL}
+    />
+  );
+
+  // add NotificationsContainer just once
+  if (!stack.get_child_by_name(pageName)) {
+    stack.add_named(NotificationsContainer, pageName);
+  }
+
+  Notifd.connect("notified", (_, id: number) => {
+    const notif = Notifd.get_notification(id);
+    if (!notif) return;
+
+    const widget = <Notification NotificationObject={notif} />;
+    NotificationsContainer.append(widget);
+
+    // show notifications page
+    stack.set_visible_child_name(pageName);
+
+    // per-notification timeout with sane fallback
+    let expireIn = notif.get_expire_timeout(); // usually ms; may be 0 / -1
+    if (expireIn == null || expireIn <= 0) expireIn = 5000;
+
+    setTimeout(() => {
+      // remove just this widget
+      if (widget.get_parent()) NotificationsContainer.remove(widget);
+
+      // only go back to idle if no notifications remain
+      if (NotificationsContainer.get_first_child() === null) {
+        stack.set_visible_child_name("page-time");
+      }
+    }, expireIn);
+  });
+}
 
 export function Notch(monitor: Gdk.Monitor) {
   const Notifd = AstalNotifd.get_default();
@@ -20,7 +61,6 @@ export function Notch(monitor: Gdk.Monitor) {
   const [notchActive, setNotchActive] = createState(false);
   const [notchClass, setNotchClass] = createState("notch-idle");
 
-  // NEW: reactive ref for the Gtk.Stack
   const [stackRef, setStackRef] = createState<Gtk.Stack | null>(null);
 
   const initialPage = () => setVisiblePage(PAGES.at(currentPage)!);
@@ -80,32 +120,18 @@ export function Notch(monitor: Gdk.Monitor) {
       }}
     >
       <box orientation={Gtk.Orientation.VERTICAL}>
-        <stack
+        <Gtk.Stack
           hhomogeneous={false}
           vhomogeneous={false}
           hexpand
           vexpand
           interpolate_size
           $={(self) => {
-            // assign into reactive state so dependents get updated
             setStackRef(self);
             self.connect("notify::visible-child", () => {
               win?.set_default_size(-1, -1);
             });
-
-            // NOTIFICATIONS
-            Notifd.connect("notified", (_, id) => {
-              const NotifObject = Notifd.get_notification(id);
-              const NotificationTSX = (
-                <Notification NotificationObject={NotifObject} />
-              );
-              self.add_named(NotificationTSX, "lol");
-              self.set_visible_child_name("lol");
-              setTimeout(() => {
-                self.remove(NotificationTSX);
-                self.set_visible_child_name("page-time");
-              }, 1500);
-            });
+            handleNotifications(self, Notifd);
           }}
           visibleChildName={visiblePage}
         >
@@ -113,7 +139,7 @@ export function Notch(monitor: Gdk.Monitor) {
           <Calendar name="page-calendar" title="calendar" />
           <Mediaplayer name="page-mediaplayer" title="Media" />
           <Opts name="page-opts" title="opts" />
-        </stack>
+        </Gtk.Stack>
       </box>
     </window>
   );
