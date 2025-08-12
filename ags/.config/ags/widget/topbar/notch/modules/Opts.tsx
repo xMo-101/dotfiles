@@ -117,7 +117,7 @@ function DNDButton() {
 
 function SpeedtestButton() {
   const action = () =>
-    GLib.spawn_command_line_async(`alacritty -e bash -c 'speedtest';read`);
+    GLib.spawn_command_line_async(`kitty -e bash -c 'speedtest';read`);
   return (
     <ButtonTemplate
       icon="network-transmit-receive-symbolic"
@@ -141,7 +141,8 @@ function RecordScreenButton() {
 }
 
 function SunsetButton() {
-  const action = () => print("WIP");
+  const action = () =>
+    GLib.spawn_command_line_async(`${scripts()}/hyprsunset/hyprsunset.sh`);
   return (
     <ToggleButtonTemplate
       action={action}

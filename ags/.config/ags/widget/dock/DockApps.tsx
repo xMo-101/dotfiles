@@ -9,12 +9,12 @@ const pinnedApps = [
   { icon: "endeavouros-icon", cmd: "eos-update", label: "update" },
   {
     icon: "user-trash-symbolic",
-    cmd: "nautilus trash:",
+    cmd: "kitty -e yazi ~/.local/share/Trash/files",
     label: "trash",
   },
   {
     icon: "view-app-grid-symbolic",
-    cmd: "ags toggle appoverview",
+    cmd: "ags toggle launcher",
     label: "overview",
   },
 ];
