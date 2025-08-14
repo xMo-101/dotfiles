@@ -30,6 +30,7 @@ pacman:
   - evince
   - dotnet-sdk
   - dotnet-runtime
+  - hyprsunset
 
 yay:
   - stow
