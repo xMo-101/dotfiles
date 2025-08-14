@@ -33,7 +33,7 @@ def create_file(type: str, colors: dict) -> None:
         for key, value in colors["palette"].items():
             lines.append(formatter(key, value))
         f.writelines(lines)
-        
+
 
 # === DATA PARSING ===
 def parse_colors() -> dict:
