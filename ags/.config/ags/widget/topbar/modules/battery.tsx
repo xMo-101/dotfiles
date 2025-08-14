@@ -14,15 +14,18 @@ export function myBattery() {
 
     if (pct <= 5) {
       GLib.spawn_command_line_async(
-        `notify-send -a "${APP_NAME}" "Battery critical" "Only ${pct.toFixed(0)}% left! Plug in immediately."`,
+        // at every discharge
+        `notify-send --urgency critical -a "${APP_NAME}" "Battery critical" "Only ${pct.toFixed(0)}% left! Plug in immediately."`,
       );
     } else if (pct <= 10) {
+      // at every discharge
       GLib.spawn_command_line_async(
-        `notify-send -a "${APP_NAME}" "Battery very low" "Battery at ${pct.toFixed(0)}%. Consider charging soon."`,
+        `notify-send --urgency normal -a "${APP_NAME}" "Battery very low" "Battery at ${pct.toFixed(0)}%. Consider charging soon."`,
       );
-    } else if (pct <= 20) {
+    } else if (pct == 20) {
+      //once at 20%
       GLib.spawn_command_line_async(
-        `notify-send -a "${APP_NAME}" "Battery low" "Battery at ${pct.toFixed(0)}%. Reduce usage or charge."`,
+        `notify-send --urgency low -a "${APP_NAME}" "Battery low" "Battery at ${pct.toFixed(0)}%. Reduce usage or charge."`,
       );
     }
   });

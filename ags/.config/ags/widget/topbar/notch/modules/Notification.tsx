@@ -26,8 +26,21 @@ export function Notification({
   const body = NotificationObject.get_body();
   const time = NotificationObject.get_time();
 
+  const urgencyClass = (urgency: number) => {
+    switch (urgency) {
+      case 0:
+        return "notif";
+      case 1:
+        return "notif-normal";
+      case 2:
+        return "notif-critical";
+      default:
+        return "notif";
+    }
+  };
+
   return (
-    <box class="notif">
+    <box class={urgencyClass(NotificationObject.urgency)}>
       <label label={appName} />
       <Gtk.Separator />
       <box orientation={Gtk.Orientation.VERTICAL}>

@@ -306,6 +306,20 @@ stackswitcher button {
   @include window-border;
 }
 
+.notif-normal {
+  padding: 12px;
+  margin: 6px;
+  @include window-border;
+  border-color: c.$warning-color;
+}
+
+.notif-critical {
+  padding: 12px;
+  margin: 6px;
+  @include window-border;
+  border-color: c.$accent-color;
+}
+
 .notif-container {
   @include container;
 }
