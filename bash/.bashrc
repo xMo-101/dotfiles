@@ -23,3 +23,4 @@ fi
 # ALIAS:
 alias y=yazi
 alias n="nvim ."
+alias e="exit"
