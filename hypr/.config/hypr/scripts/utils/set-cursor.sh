@@ -1,2 +1,2 @@
 #!/bin/bash
-hyprctl setcursor macOS-cursors 32
+hyprctl setcursor macOS-cursors 36
