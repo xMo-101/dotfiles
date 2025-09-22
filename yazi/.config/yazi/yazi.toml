@@ -142,8 +142,7 @@ previewers = [
 	{ name = "*.{img,fat,ext,ext2,ext3,ext4,squashfs,ntfs,hfs,hfsx}", run = "archive" },
 	# Font
 	{ mime = "font/*", run = "font" },
-	{ mime = "application/ms-opentype", run = "font" },
-	# Empty file
+	{ mime = "application/ms-opentype", run = "font" }, # Empty file
 	{ mime = "inode/empty", run = "empty" },
 	# Fallback
 	{ name = "*", run = "file" },

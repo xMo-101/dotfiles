@@ -8,7 +8,7 @@
           "background": "#D19A9A",
           "foreground": "#1E1E1E",
           "style": "plain",
-          "template": "  ",
+          "template": " ~ ",
           "type": "text"
         },
         {
