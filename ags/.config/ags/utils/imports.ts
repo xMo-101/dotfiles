@@ -5,7 +5,7 @@ export { execAsync, exec } from "ags/process";
 export { createPoll } from "ags/time";
 
 // gi://
-import Astal from "gi://Astal";
+import Astal from "gi://Astal?version=4.0";
 import Mpris from "gi://AstalMpris?version=0.1";
 import Hyprland from "gi://AstalHyprland?version=0.1";
 import AstalTray from "gi://AstalTray?version=0.1";
