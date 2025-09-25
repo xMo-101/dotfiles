@@ -29,7 +29,6 @@ export function TopBar(monitor: Gdk.Monitor) {
 
         <box class="transparent" $type="end">
           <Tray />
-          <Gtk.Separator />
           <Settings />
           <Power />
         </box>

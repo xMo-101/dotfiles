@@ -1,4 +1,4 @@
-import { AstalTray, createBinding, For } from "@/utils/imports";
+import { AstalTray, createBinding, For, Gtk } from "@/utils/imports";
 
 function TrayItem({ itemObject }) {
   return (
@@ -21,10 +21,19 @@ function TrayItem({ itemObject }) {
 export function Tray() {
   const trayObject = AstalTray.get_default();
   return (
-    <box homogeneous={true} class="transparent">
-      <For each={createBinding(trayObject, "items")}>
-        {(item) => <TrayItem itemObject={item} />}
-      </For>
-    </box>
+    <menubutton class="button-long">
+      <image iconName="go-down-symbolic" />
+      <Gtk.Popover>
+        <Gtk.FlowBox
+          homogeneous={true}
+          maxChildrenPerLine={3}
+          minChildrenPerLine={1}
+        >
+          <For each={createBinding(trayObject, "items")}>
+            {(item) => <TrayItem itemObject={item} />}
+          </For>
+        </Gtk.FlowBox>
+      </Gtk.Popover>
+    </menubutton>
   );
 }

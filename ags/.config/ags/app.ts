@@ -14,14 +14,13 @@ app.start({
   main() {
     // Initialize one instance per monitor
     const launcher = Applauncher();
-    app.get_monitors().forEach((monitor) => {
-      TopBar(monitor);
-      PowerWindow();
-      // SettingsWindow();
-      Notch(monitor);
-      DockRaiser(monitor);
-      Dock();
-    });
+    const mon = app.get_monitors()[0];
+    TopBar(mon);
+    PowerWindow();
+    // SettingsWindow();
+    Notch(mon);
+    DockRaiser(mon);
+    Dock();
     initHyprland();
   },
 });
