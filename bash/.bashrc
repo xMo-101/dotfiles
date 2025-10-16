@@ -8,7 +8,7 @@ alias grep='grep --color=auto'
 PS1='[\u@\h \W]\$ '
 
 # OH MY POSH:
-eval "$(oh-my-posh init bash --config /home/moeez/.config/oh-my-posh/omp_config.omp.json)"
+eval "$(oh-my-posh init bash --config /home/$USER/.config/oh-my-posh/omp_config.omp.json)"
 
 # NEOFETCH:
 if [ -f /usr/bin/neofetch ]; then
