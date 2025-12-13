@@ -5,33 +5,31 @@
       "alignment": "left",
       "segments": [
         {
-          "background": "#D19A9A",
-          "foreground": "#1E1E1E",
-          "style": "plain",
-          "template": " ~ ",
-          "type": "text"
-        },
-        {
-          "background": "#3A3A3A",
-          "foreground": "#CCCCCC",
-          "style": "plain",
-          "template": " {{ .Path }} ",
+          "foreground": "#ffffff",
           "properties": {
             "style": "full"
           },
+          "style": "plain",
+          "template": "{{ .Path }} ",
           "type": "path"
         },
         {
-          "background": "#444444",
-          "foreground": "#F1F1F1",
+          "foreground": "#C2C206",
           "style": "plain",
-          "template": "  {{ .HEAD }}{{ if .Working.Changed }} *{{ end }} ",
-          "properties": {
-            "branch_icon": "",
-            "fetch_status": true,
-            "display_status": true
-          },
+          "template": "{{ .HEAD }} ",
           "type": "git"
+        },
+        {
+          "foreground": "#B5B50D",
+          "style": "plain",
+          "template": " \uf0e7 ",
+          "type": "root"
+        },
+        {
+          "foreground": "#C94A16",
+          "style": "plain",
+          "template": "x{{ reason .Code }} ",
+          "type": "status"
         }
       ],
       "type": "prompt"
@@ -41,16 +39,15 @@
       "newline": true,
       "segments": [
         {
-          "foreground": "#CCCCCC",
+          "foreground": "#007ACC",
           "style": "plain",
-          "template": "󰁔",
+          "template": "\ue602",
           "type": "text"
         }
       ],
       "type": "prompt"
     }
   ],
-  "console_title_template": "{{ .Folder }}",
   "final_space": true,
   "version": 3
 }
