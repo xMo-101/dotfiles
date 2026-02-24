@@ -32,6 +32,9 @@ return {
 				"lua_ls",
 				"emmet_ls",
 				"clangd",
+				"tinymist", -- for typst
+				"omnisharp", -- for c#
+				"python-lsp-server", -- for python
 			},
 		})
 
@@ -39,7 +42,6 @@ return {
 			ensure_installed = {
 				"prettier", -- prettier formatter
 				"stylua", -- lua formatter
-				"eslint_d",
 			},
 		})
 	end,
