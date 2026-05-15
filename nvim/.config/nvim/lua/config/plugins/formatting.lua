@@ -21,11 +21,12 @@ return {
 				lua = { "stylua" },
 				c = { "clang-format" },
 			},
-			format_on_save = {
-				lsp_fallback = true,
-				async = false,
-				timeout_ms = 1000,
-			},
+			format_on_save = false,
+			-- format_on_save = {
+			-- 	lsp_fallback = true,
+			-- 	async = false,
+			-- 	timeout_ms = 1000,
+			-- },
 		})
 		vim.keymap.set({ "n", "v" }, "<leader>ff", function()
 			conform.format({
