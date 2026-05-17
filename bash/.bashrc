@@ -10,4 +10,5 @@ PS1='[\u@\h \W]\$ '
 # ALIAS:
 alias n="nvim ."
 alias e="exit"
+alias hx="helix"
 alias update="sudo pacman -Syu && yay -Syu"

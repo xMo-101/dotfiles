@@ -1,0 +1,21 @@
+theme = "github_dark"
+
+[editor]
+line-number = "relative"
+mouse = true
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.indent-guides]
+render = true
+
+[editor.lsp]
+display-messages = true
+
+[editor.statusline]
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"
